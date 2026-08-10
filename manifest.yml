@@ -3,15 +3,14 @@ application:
   background_task: true
   public_path:
     - /
-
   upstreams:
     - location: /
       backend: http://wrong-notebook:3000/
-
 services:
   wrong-notebook:
     # ghcr.io/wttwins/wrong-notebook:1.9.1
-    image: registry.lazycat.cloud/czyt/wttwins/wrong-notebook:b2f8ed323236b6af
+    # upstream: ghcr.io/wttwins/wrong-notebook:2.2.0
+    image: registry.lazycat.cloud/czyt/wttwins/wrong-notebook:f9c4c6cf51617c53
     user: root
     environment:
       - NEXTAUTH_URL=https://{{.S.AppDomain}}
