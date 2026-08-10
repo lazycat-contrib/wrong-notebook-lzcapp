@@ -1,0 +1,15 @@
+package: community.lazycat.app.wrong-notebook
+version: 0.1.0
+name: "智能错题本"
+description: "一个基于 AI 的智能错题管理系统，帮助学生高效整理、分析和复习错题。"
+min_os_version: 1.5.0
+homepage: https://github.com/wttwins/wrong-notebook
+author: wttwins
+
+locales:
+  zh:
+    name: "智能错题本"
+    description: "一个基于 AI 的智能错题管理系统，帮助学生高效整理、分析和复习错题。"
+  en:
+    name: "Smart Wrong Notebook"
+    description: "An AI-based intelligent wrong question management system that helps students efficiently organize, analyze, and review their mistakes."

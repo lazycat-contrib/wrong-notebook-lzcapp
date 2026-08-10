@@ -1,0 +1,48 @@
+version: 1
+
+project:
+  root: .
+  build_config: lzc-build.yml
+  package_file: package.yml
+  output: dist/application.lpk
+  target_arch: amd64
+
+update:
+  strategy: publish
+  allow_downgrade: false
+  version_source:
+    type: image
+    image: wrong-notebook
+
+build:
+  run_buildscript: false
+
+images:
+  - id: wrong-notebook
+    target: service
+    service: wrong-notebook
+    source: ghcr.io/wttwins/wrong-notebook
+    channel: stable
+    sort: semver
+    tag_regex: '^\d+\.\d+\.\d+$'
+    delivery:
+      mode: lazycat
+
+stores:
+  official:
+    enabled: true
+    skip_if_version_exists: true
+    create_if_missing: true
+    changelog_locales: [zh, en]
+    retry:
+      enabled: false
+    application:
+      language: zh
+      name: 智能错题本
+      source: https://github.com/wttwins/wrong-notebook
+      source_author: wttwins
+  private:
+    enabled: true
+    skip_if_version_exists: true
+    name: 智能错题本
+    summary: 由 GitHub Actions 自动发布
